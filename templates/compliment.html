@@ -10,13 +10,14 @@
         <li>{{ comp }}!</li>
       {% endfor %}  
      </ul>
-      <form action="/game">
+      <form action="/game" method="POST">
     Would you like to play a game?
     <input type="radio" name="response" value="Yes">
     <Label>Play a game</Label>
     <input type="radio" name="response" value="No">
     <Label>Don't want to play game</Label>
     <input type="submit">
+
   </form>
 </body>
 </html>

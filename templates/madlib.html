@@ -2,8 +2,27 @@
 <html>
 <body>
     <h1> Your Story: </h1>
-    <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab.
+    <p>There once was a 
+        {% if color|length ==1 %}
+            {{color[0]}}
+        {% elif color|length ==2 %}
+            {{color[0]}} and {{color[1]}}
+        {% else %}
+        {%for col in color %}
+            {% if col == color[-1] %} 
+                and {{ col }}    
+            {% else %}
+                {{ col }},
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+    {{ noun }} sitting in the Hackbright Lab.
     When {{ person }} went to pick it up, it burst into flames in a totally
     {{ adjective }} way.</p>
 </body>
 </html>
+
+<!-- {% for comp in compliment %}
+<li>{{ comp }}!</li>
+{% endfor %}   -->
+<!--  -->

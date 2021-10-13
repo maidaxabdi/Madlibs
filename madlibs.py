@@ -25,7 +25,6 @@ AWESOMENESS = [
     "lovely",
 ]
 
-
 @app.route("/")
 def start_here():
     """Display homepage."""
@@ -40,19 +39,19 @@ def say_hello():
     return render_template("hello.html")
 
 
-@app.route("/greet")
+@app.route("/greet", methods=["POST"])
 def greet_person():
     """Greet user with compliment."""
 
-    player = request.args.get("person")
+    player = request.form.get("person")
 
     compliments = sample(AWESOMENESS,3)
 
     return render_template("compliment.html", person=player, compliment=compliments)
 
-@app.route("/game")
+@app.route("/game", methods=["POST"])
 def show_madlib_form():
-    answer = request.args.get("response")
+    answer = request.form.get("response")
     print(answer)
     if answer == "Yes":
         test = "game.html"
@@ -60,12 +59,12 @@ def show_madlib_form():
         test = "goodbye.html"
     return render_template(f"{test}")
 
-@app.route("/madlib")
+@app.route("/madlib", methods=["POST"])
 def show_madlib():
-    name = request.args.get("person")
-    color = request.args.get("color")
-    noun = request.args.get("noun")
-    adjective = request.args.get("adjective")
+    name = request.form.get("person")
+    color = request.form.getlist("color")
+    noun = request.form.get("noun")
+    adjective = request.form.get("adjective")
 
     return render_template("madlib.html", person = name, color = color,
                                     noun = noun, adjective = adjective)

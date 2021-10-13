@@ -5,16 +5,27 @@
 </head>
 <body>
   <h1>Welcome to Madlib</h1>
-  <form action="/madlib">
+  <form action="/madlib" method = "POST">
     What's your name?
-    <input type="text" name="person"><br>
+    <input type="text" name="person"><br> 
     Pick a color:
-    <input type="text" name="color"><br>
+    <input type="checkbox" name="color" value="Yellow">
+    <label>Yellow</label>
+    <input type="checkbox" name="color" value="Blue">
+    <label>Blue</label>
+    <input type="checkbox" name="color" value="Purple">
+    <label>Purple</label>
+    <input type="checkbox" name="color" value="Black">
+    <label>Black</label>
+    <input type="checkbox" name="color" value="Green">
+    <label>Green</label>
+    <br>
     Pick a noun:
     <input type="text" name="noun"><br>
     Pick a adjective:
     <input type="text" name="adjective"><br>
     <input type="submit">
+    
   </form>
 </body>
 </html>
